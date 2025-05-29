@@ -9,7 +9,7 @@ st.title("🌆 NYC Emerging Restaurant Dashboard")
 df = pd.read_csv("cleaned_restaurants.csv")
 df['Time of Submission'] = pd.to_datetime(df['Time of Submission'])
 
-recent_df = df[df['Time of Submission'] > pd.Timestamp.today() - pd.Timedelta(days=60)]
+recent_df = df.copy() 
 
 st.sidebar.header("Filters")
 boroughs = st.sidebar.multiselect("Select Borough(s):", options=df['Borough'].unique(), default=df['Borough'].unique())
